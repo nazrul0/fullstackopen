@@ -24,6 +24,12 @@ const App = () => {
 
   const [selected, setSelected] = useState(0);
 
+  const handleClickAnecdote = () => {
+    let randomNumber = Math.floor(Math.random() * 6.99999);
+    setSelected(randomNumber);
+    console.log(randomNumber);
+  };
+
   return (
     <div>
       <h1>give feedback</h1>
@@ -31,6 +37,11 @@ const App = () => {
       <Button onClick={handleClickNeutral} text="neutral" />
       <Button onClick={handleClickBad} text="bad" />
       <Statistics good={good} neutral={neutral} bad={bad}></Statistics>
+
+      <div>
+        <Button onClick={handleClickAnecdote} text="next anecdote" />
+        {anecdotes[selected]}
+      </div>
     </div>
   );
 };
